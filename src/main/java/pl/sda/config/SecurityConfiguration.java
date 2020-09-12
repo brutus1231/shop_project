@@ -40,6 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/header*").permitAll()
                 .antMatchers("/regist*").permitAll()
                 .anyRequest().authenticated();
+
         http.formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/appLogin")
@@ -48,8 +49,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/", true)
         ;
         // .failureHandler(authenticationFailureHandler())
-        http.csrf().disable()
-                .headers().frameOptions().disable();
+        http.csrf().disable();
+
+        http.headers().disable();
         http.logout()
                 .logoutSuccessUrl("/login")
                 .logoutUrl("/logout")
