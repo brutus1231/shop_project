@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-horizontal" action='' method="POST">
+    <form action="#" th:action="@{/registration}" th:object="${user}"  class="form-horizontal" method="POST">
         <fieldset>
             <div id="legend">
                 <legend class="">Register</legend>
@@ -18,7 +18,7 @@
                 <!-- E-mail -->
                 <label class="control-label" for="username">E-mail</label>
                 <div class="controls">
-                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+                    <input type="text" id = "username" th:field="*{username}" placeholder="" class="input-xlarge">
                     <p class="help-block">Please provide your E-mail</p>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                 <!-- Password-->
                 <label class="control-label" for="password">Password</label>
                 <div class="controls">
-                    <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                    <input type="password" id="password" th:field="*{password}" placeholder="" class="input-xlarge">
                     <p class="help-block">Password should be at least 4 characters</p>
                 </div>
             </div>
@@ -36,7 +36,8 @@
                 <!-- Password -->
                 <label class="control-label"  for="password_confirm">Password (Confirm)</label>
                 <div class="controls">
-                    <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
+                    <input type="password" id="password_confirm" th:field="*{confirmedPassword}" placeholder=""
+                        class="input-xlarge">
                     <p class="help-block">Please confirm password</p>
                 </div>
             </div>

@@ -16,8 +16,4 @@ public class MainController {
         return "login";
     }
 
-    @GetMapping("/registration")
-    public String getRegistrationPage() {
-        return "registration";
-    }
 }
