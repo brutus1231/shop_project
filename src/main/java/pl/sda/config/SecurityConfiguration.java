@@ -48,14 +48,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .passwordParameter("pass")
                 .defaultSuccessUrl("/", true)
         ;
-        // .failureHandler(authenticationFailureHandler())
-        http.csrf().disable();
 
-        http.headers().disable();
+        http.csrf().disable()
+                .headers().frameOptions().disable();
         http.logout()
                 .logoutSuccessUrl("/login")
                 .logoutUrl("/logout")
-        //  .logoutSuccessHandler(logoutSuccessHandler())
         ;
     }
 
