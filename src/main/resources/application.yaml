@@ -3,3 +3,4 @@ spring.datasource:
   username: scott
   password: scott
 server.port: 9001
+spring.jpa.hibernate.ddl-auto: update
