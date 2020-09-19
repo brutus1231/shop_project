@@ -11,7 +11,7 @@ public class User {
     @Column
     private Long id;
 
-    @Column
+    @Column(unique = true)
     private String username;
 
     @Column
@@ -22,4 +22,15 @@ public class User {
 
     @Column
     private String role;
+
+    public User() {
+
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.enabled = true;
+        this.role = "USER";
+    }
 }

@@ -1,5 +1,7 @@
 package pl.sda.controller;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -7,9 +9,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.sda.dto.UserDto;
+import pl.sda.model.User;
+import pl.sda.repository.UserRepository;
 
 @Controller
 public class RegistrationController {
+
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    public RegistrationController(UserRepository userRepository,
+                                  PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @GetMapping("/registration")
     public String getRegistrationPage(Model model) {
@@ -18,9 +31,14 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String saveUser(@ModelAttribute(name = "user") UserDto user, BindingResult bindingResult,
-                           Model model) {
+    public String saveUser(@ModelAttribute(name = "user") UserDto user, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "registration";
+        }
 
-        return "registration";
+        User userToCreate = new User(user.getUsername(), passwordEncoder.encode(user.getPassword()));
+        userRepository.save(userToCreate);
+
+        return "login";
     }
 }
