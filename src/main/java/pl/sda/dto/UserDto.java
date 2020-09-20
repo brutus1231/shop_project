@@ -1,11 +1,16 @@
 package pl.sda.dto;
 
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 public class UserDto implements Serializable {
 
+    @Size(min = 6, max = 50, message = "{username.size.invalid}")
     private String username;
+
+    @Size(min = 6, max = 20, message = "{password.size.invalid}")
     private String password;
+
     private String confirmedPassword;
 
     public String getUsername() {

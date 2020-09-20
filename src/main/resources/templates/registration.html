@@ -19,6 +19,7 @@
                                     <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                     <div class="col-md-6">
                                         <input type="text" id="email_address" class="form-control" th:field="*{username}">
+                                        <div class="mt-1 alert alert-danger" role="alert" th:errors="*{username}"></div>
                                     </div>
                                 </div>
 
@@ -26,6 +27,7 @@
                                     <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
                                     <div class="col-md-6">
                                         <input type="password" id="password" class="form-control" th:field="*{password}">
+                                        <div class="mt-1 alert alert-danger" role="alert" th:errors="*{password}"></div>
                                     </div>
                                 </div>
 
@@ -33,6 +35,7 @@
                                     <label for="passwordConfirmed" class="col-md-4 col-form-label text-md-right">Password (Confirm)</label>
                                     <div class="col-md-6">
                                         <input type="password" id="passwordConfirmed" class="form-control" th:field="*{confirmedPassword}">
+                                        <div class="mt-1 alert alert-danger" role="alert" th:errors="*{confirmedPassword}"></div>
                                     </div>
                                 </div>
 

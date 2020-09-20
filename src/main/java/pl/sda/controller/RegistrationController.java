@@ -12,14 +12,15 @@ import pl.sda.dto.UserDto;
 import pl.sda.model.User;
 import pl.sda.repository.UserRepository;
 
+import javax.validation.Valid;
+
 @Controller
 public class RegistrationController {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public RegistrationController(UserRepository userRepository,
-                                  PasswordEncoder passwordEncoder) {
+    public RegistrationController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
@@ -31,7 +32,8 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String saveUser(@ModelAttribute(name = "user") UserDto user, BindingResult bindingResult, Model model) {
+    public String saveUser(@Valid @ModelAttribute(name = "user") UserDto user, BindingResult bindingResult,
+                           Model model) {
         if (bindingResult.hasErrors()) {
             return "registration";
         }
