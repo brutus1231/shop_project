@@ -21,7 +21,8 @@ public class User {
     private boolean enabled;
 
     @Column
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private UserRoleType role;
 
     public User() {
 
@@ -31,6 +32,6 @@ public class User {
         this.username = username;
         this.password = password;
         this.enabled = true;
-        this.role = "USER";
+        this.role = UserRoleType.USER;
     }
 }
