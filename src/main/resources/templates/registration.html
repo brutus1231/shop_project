@@ -5,52 +5,48 @@
     <title>Registration</title>
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <script src="js/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
 </head>
 <body>
-<div class="container">
-    <form action="#" th:action="@{/registration}" th:object="${user}"  class="form-horizontal" method="POST">
-        <fieldset>
-            <div id="legend">
-                <legend class="">Register</legend>
-            </div>
-            <div class="control-group">
-                <!-- E-mail -->
-                <label class="control-label" for="username">E-mail</label>
-                <div class="controls">
-                    <input type="text" id = "username" th:field="*{username}" placeholder="" class="input-xlarge">
-                    <p class="help-block">Please provide your E-mail</p>
+    <main class="my-form">
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">Register</div>
+                        <div class="card-body">
+                            <form action="#" th:action="@{/registration}" th:object="${user}"  class="form-horizontal" method="POST">
+                                <div class="form-group row">
+                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="email_address" class="form-control" th:field="*{username}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                    <div class="col-md-6">
+                                        <input type="password" id="password" class="form-control" th:field="*{password}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="passwordConfirmed" class="col-md-4 col-form-label text-md-right">Password (Confirm)</label>
+                                    <div class="col-md-6">
+                                        <input type="password" id="passwordConfirmed" class="form-control" th:field="*{confirmedPassword}">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Register
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="control-group">
-                <!-- Password-->
-                <label class="control-label" for="password">Password</label>
-                <div class="controls">
-                    <input type="password" id="password" th:field="*{password}" placeholder="" class="input-xlarge">
-                    <p class="help-block">Password should be at least 4 characters</p>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <!-- Password -->
-                <label class="control-label" for="password_confirm">Password (Confirm)</label>
-                <div class="controls">
-                    <input type="password" id="password_confirm" th:field="*{confirmedPassword}" placeholder=""
-                        class="input-xlarge">
-                    <p class="help-block">Please confirm password</p>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <!-- Button -->
-                <div class="controls">
-                    <button class="btn btn-success" type="submit">Register</button>
-                </div>
-            </div>
-        </fieldset>
-    </form>
-</div>
-
+        </div>
+    </main>
 </body>
 </html>
