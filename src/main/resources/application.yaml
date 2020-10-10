@@ -4,5 +4,7 @@ spring:
     username: scott
     password: scott
     initialization-mode: always
-  jpa.hibernate.ddl-auto: update
+  jpa:
+    hibernate.ddl-auto: update
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
 server.port: 9001
