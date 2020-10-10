@@ -1,11 +1,12 @@
 package pl.sda.dto;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 public class UserDto implements Serializable {
 
-    @Size(min = 6, max = 50, message = "{username.size.invalid}")
+    @Email(regexp = "^[a-zA-Z_#0-9]+@[a-zA-Z]+(\\.){1}[a-zA-Z]+$", message = "{username.size.invalid}")
     private String username;
 
     @Size(min = 6, max = 20, message = "{password.size.invalid}")

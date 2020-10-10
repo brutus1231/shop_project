@@ -14,8 +14,10 @@
             });
         }
     </script>
+    <div th:replace="header :: header-header"/>
 </head>
 <body>
+<div th:replace="header :: header"/>
     Main page
     <br /><br />
     <input type="button" name="myButton" value="Przycisk" onClick="getText()"/>

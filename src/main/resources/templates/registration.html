@@ -5,6 +5,11 @@
     <title>Registration</title>
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <script src="js/jquery-3.5.1.min.js"></script>
+    <script>
+        function redirectToLogin() {
+            window.location.href="/login"
+        }
+    </script>
 </head>
 <body>
     <main class="my-form">
@@ -40,9 +45,8 @@
                                 </div>
 
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Register
-                                    </button>
+                                    <button type="button" class="btn btn-secondary" onClick="redirectToLogin()">Back</button>
+                                    <button type="submit" class="btn btn-primary">Register</button>
                                 </div>
                             </form>
                         </div>
